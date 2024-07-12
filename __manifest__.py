@@ -9,7 +9,8 @@
     "data": [
         "security/security.xml",
         "security/ir.model.access.csv",
-        "views/user_department_views.xml"
+        "views/user_department_views.xml",
+        "views/user_task_views.xml"
     ],
 
     'application': True,

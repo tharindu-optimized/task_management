@@ -57,10 +57,10 @@
             </p>
         </field>
     </record>
-    <menuitem id="menu_task_management_root" name="Task" />
+    <menuitem id="menu_task_management_root" name="Task" web_icon="task_management,static/description/icon.jpg"/>
     
     <menuitem id="menu_task_management_configuration" name="Configuration" parent="menu_task_management_root"/>
     
-    <menuitem id="menu_user" name="Department" parent="menu_task_management_configuration" action="action_user_department"/>
+    <menuitem id="menu_user_department" name="Department" parent="menu_task_management_configuration" action="action_user_department"/>
 
 </odoo>
