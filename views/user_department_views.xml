@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- View user.department View Tree -->
+    <record id="view_user_department_tree" model="ir.ui.view">
+        <field name="name">view.user.department.tree</field>
+        <field name="model">user.department</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- View user.department form -->
+    <record id="view_user_department_form" model="ir.ui.view">
+        <field name="name">view.user.department.form</field>
+        <field name="model">user.department</field>
+        <field name="arch" type="xml">
+            <form string="User Department">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="Name..."/>
+                        </h1>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- View user.department search -->
+    <record id="view_user_department_search" model="ir.ui.view">
+        <field name="name">view.user.department.search</field>
+        <field name="model">user.department</field>
+        <field name="arch" type="xml">
+            <search>
+                <group expand="1" string="Group By">
+                    <filter string="Name" name="name" domain="[]" context="{'group_by':'name'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action user.department -->
+    <record id="action_user_department" model="ir.actions.act_window">
+        <field name="name">User Department</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">user.department</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                There is no examples click here to add new User Department.
+            </p>
+        </field>
+    </record>
+    <menuitem id="menu_task_management_root" name="Task" />
+    
+    <menuitem id="menu_task_management_configuration" name="Configuration" parent="menu_task_management_root"/>
+    
+    <menuitem id="menu_user" name="Department" parent="menu_task_management_configuration" action="action_user_department"/>
+
+</odoo>
