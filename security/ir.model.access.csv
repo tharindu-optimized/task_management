@@ -1,3 +1,4 @@
 id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
 access_user_department_manager,user_department_manager,model_user_department,group_task_manager,1,1,1,1
 access_task_manager,task_manager,model_user_task,group_task_manager,1,1,1,1
+access_branch_manager,branch_manager,model_branch,group_task_manager,1,1,1,1

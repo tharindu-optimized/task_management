@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <!-- View user.department View Tree -->
-    <record id="view_user_department_tree" model="ir.ui.view">
-        <field name="name">view.user.department.tree</field>
-        <field name="model">user.department</field>
+    <!-- View branch View Tree -->
+    <record id="view_branch_tree" model="ir.ui.view">
+        <field name="name">view.branch.tree</field>
+        <field name="model">branch</field>
         <field name="arch" type="xml">
             <tree>
                 <field name="name"/>
@@ -12,12 +12,12 @@
         </field>
     </record>
 
-    <!-- View user.department form -->
-    <record id="view_user_department_form" model="ir.ui.view">
-        <field name="name">view.user.department.form</field>
-        <field name="model">user.department</field>
+    <!-- View branch form -->
+    <record id="view_branch_form" model="ir.ui.view">
+        <field name="name">view.branch.form</field>
+        <field name="model">branch</field>
         <field name="arch" type="xml">
-            <form string="User Department">
+            <form string="Branch">
                 <sheet>
                     <div class="oe_title">
                         <label for="name"/>
@@ -30,10 +30,10 @@
         </field>
     </record>
 
-    <!-- View user.department search -->
-    <record id="view_user_department_search" model="ir.ui.view">
-        <field name="name">view.user.department.search</field>
-        <field name="model">user.department</field>
+    <!-- View branch search -->
+    <record id="view_branch_search" model="ir.ui.view">
+        <field name="name">view.branch.search</field>
+        <field name="model">branch</field>
         <field name="arch" type="xml">
             <search>
                 <group expand="1" string="Group By">
@@ -43,21 +43,21 @@
         </field>
     </record>
 
-    <!-- Action user.department -->
-    <record id="action_user_department" model="ir.actions.act_window">
-        <field name="name">User Department</field>
+    <!-- Action branch -->
+    <record id="action_branch" model="ir.actions.act_window">
+        <field name="name">Branch</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">user.department</field>
+        <field name="res_model">branch</field>
         <field name="view_mode">tree,form</field>
         <field name="domain">[]</field>
         <field name="context">{}</field>
         <field name="help" type="html">
             <p class="oe_view_nocontent_create">
-                There is no examples click here to add new User Department.
+                There is no examples click here to add new Branch.
             </p>
         </field>
     </record>
     
-    <menuitem id="menu_user_department" name="Department" parent="menu_task_management_configuration" action="action_user_department"/>
+    <menuitem id="menu_branch" name="Branch" parent="menu_task_management_configuration" action="action_branch"/>
 
 </odoo>

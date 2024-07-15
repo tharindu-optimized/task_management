@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_task_management_root" name="Task" web_icon="task_management,static/description/icon.jpg"/>
+    
+    <menuitem id="menu_task_management_configuration" name="Configuration" parent="menu_task_management_root" groups="group_task_manager"/>
+</odoo>
