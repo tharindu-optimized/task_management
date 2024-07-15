@@ -1,0 +1,72 @@
+<odoo>
+    <!-- Form View for Task -->
+    <record id="view_task_form" model="ir.ui.view">
+        <field name="name">task.form</field>
+        <field name="model">task.management</field>
+        <field name="arch" type="xml">
+            <form string="Task">
+                <header>
+                    <field name="status" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <h1>
+                        <field name="name" readonly="1"/>
+                    </h1>
+                    <group>
+                        <group>
+                            <field name="date"/>
+                            <field name="type_id"/>
+                            <field name="assigned_to"/>
+                            <field name="branch_id"/>
+                            <!-- <field name="in_ward"/>
+                        <field name="outward"/> -->
+                            <field name="description"/>
+                        </group>
+                        <group>
+                            <field name="closing_date"/>
+                            <field name="closed_by"/>
+                        </group>
+                    </group>
+                </sheet>
+                <!-- <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div> -->
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View for Task -->
+    <record id="view_task_tree" model="ir.ui.view">
+        <field name="name">task.tree</field>
+        <field name="model">task.management</field>
+        <field name="arch" type="xml">
+            <tree string="Task">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="type_id"/>
+                <field name="assigned_to"/>
+                <field name="branch_id"/>
+                <field name="status"/>
+                <field name="closing_date"/>
+                <field name="closed_by"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action for Task -->
+    <record id="action_task" model="ir.actions.act_window">
+        <field name="name">Tasks</field>
+        <field name="res_model">task.management</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to create a new task.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu Item for Task -->
+    <menuitem id="menu_task" name="Tasks" parent="menu_task_management_root" action="action_task" sequence="0"/>
+</odoo>
