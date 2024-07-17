@@ -6,7 +6,7 @@ class TaskManagement(models.Model):
     _description = 'Task'
 
     name = fields.Char(string="AOT No", required=True, copy=False, readonly=True, index=True, default=lambda self: _('New'))
-    date = fields.Datetime(string="Date")
+    date = fields.Datetime(string="Date", default=lambda self: fields.datetime.now(), readonly=True)
     due_date = fields.Date(string="Due Date")
     type_id = fields.Many2one('task.type', string="Type", required=True)
     assigned_to = fields.Many2one('res.users', string="Assigned To")
@@ -16,6 +16,7 @@ class TaskManagement(models.Model):
     description = fields.Text(string="Description")
     status = fields.Selection([
         ('draft', 'Draft'),
+        ('confirmed', 'Confirmed'),
         ('approved', 'Approved'),
         ('hold', 'Hold on'),
         ('rejected', 'Rejected'),
@@ -33,6 +34,9 @@ class TaskManagement(models.Model):
         
     def action_draft(self):
         self.status = 'draft'
+        
+    def action_confirmed(self):
+        self.status = 'confirmed'
         
     def action_approve(self):
         self.status = 'approved'
