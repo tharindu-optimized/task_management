@@ -6,11 +6,12 @@ class TaskManagement(models.Model):
     _description = 'Task'
 
     name = fields.Char(string="AOT No", required=True, copy=False, readonly=True, index=True, default=lambda self: _('New'))
-    date = fields.Date(string="Date")
+    date = fields.Datetime(string="Date")
+    due_date = fields.Date(string="Due Date")
     type_id = fields.Many2one('task.type', string="Type", required=True)
     assigned_to = fields.Many2one('res.users', string="Assigned To")
-    # in_ward = fields.Boolean(string="In Ward")
-    # outward = fields.Boolean(string="Outward")
+    in_ward = fields.Boolean(string="In Ward")
+    outward = fields.Boolean(string="Outward")
     branch_id = fields.Many2one('branch', string="Branch")
     description = fields.Text(string="Description")
     status = fields.Selection([

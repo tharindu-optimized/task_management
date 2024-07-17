@@ -18,11 +18,12 @@
                             <field name="type_id"/>
                             <field name="assigned_to"/>
                             <field name="branch_id"/>
-                            <!-- <field name="in_ward"/>
-                        <field name="outward"/> -->
+                            <field name="in_ward"/>
+                            <field name="outward"/>
                             <field name="description"/>
                         </group>
                         <group>
+                            <field name="due_date"/>
                             <field name="closing_date"/>
                             <field name="closed_by"/>
                         </group>
@@ -44,13 +45,15 @@
         <field name="arch" type="xml">
             <tree string="Task">
                 <field name="name"/>
+                <field name="branch_id"/>
+                <field name="create_uid"/>
                 <field name="date"/>
                 <field name="type_id"/>
                 <field name="assigned_to"/>
-                <field name="branch_id"/>
                 <field name="status"/>
-                <field name="closing_date"/>
+                <field name="due_date"/>
                 <field name="closed_by"/>
+                <field name="closing_date"/>
             </tree>
         </field>
     </record>
