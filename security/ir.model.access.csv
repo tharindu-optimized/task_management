@@ -3,3 +3,9 @@ access_user_department_manager,user_department_manager,model_user_department,gro
 access_task_type_manager,task_manager,model_task_type,group_task_manager,1,1,1,1
 access_branch_manager,branch_manager,model_branch,group_task_manager,1,1,1,1
 access_task_management_manager,branch_manager,model_task_management,group_task_manager,1,1,1,1
+
+access_user_department_user,user_department_user,model_user_department,group_task_user,1,0,0,0
+access_task_type_user,task_user,model_task_type,group_task_user,1,0,0,0
+access_branch_user,branch_user,model_branch,group_task_user,1,0,0,0
+access_task_management_user,branch_user,model_task_management,group_task_user,1,1,1,1
+

@@ -14,7 +14,8 @@
         "views/user_department_views.xml",
         "views/task_type_views.xml",
         "views/branch_views.xml",
-        "views/task_views.xml"
+        "views/task_views.xml",
+        "data/ir_cron.xml",
     ],
 
     'application': True,

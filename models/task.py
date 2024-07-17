@@ -19,6 +19,7 @@ class TaskManagement(models.Model):
         ('approved', 'Approved'),
         ('hold', 'Hold on'),
         ('rejected', 'Rejected'),
+        ('time_exceeded', 'Time Exceeded'),
     ], string="Status", default='draft')
     closing_date = fields.Date(string="Closing Date")
     closed_by = fields.Many2one('res.users', string="Closed By")
@@ -42,4 +43,7 @@ class TaskManagement(models.Model):
     def action_hold(self):
         self.status = 'hold'
         
-    
+    def check_due_dates(self):
+        today = fields.Date.today()
+        overdue_tasks = self.search([('due_date', '<', today), ('status', '!=', 'time_exceeded')])
+        overdue_tasks.write({'status': 'time_exceeded'})

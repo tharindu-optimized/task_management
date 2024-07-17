@@ -42,7 +42,6 @@
         </field>
     </record>
 
-
     <!-- Tree View for Task -->
     <record id="view_task_tree" model="ir.ui.view">
         <field name="name">task.tree</field>
@@ -63,11 +62,45 @@
         </field>
     </record>
 
+    <!-- Tree View for Time Exceeded Tasks -->
+    <record id="view_task_time_exceeded_tree" model="ir.ui.view">
+        <field name="name">task.time_exceeded.tree</field>
+        <field name="model">task.management</field>
+        <field name="arch" type="xml">
+            <tree string="Time Exceeded Tasks">
+                <field name="name"/>
+                <field name="branch_id"/>
+                <field name="create_uid"/>
+                <field name="date"/>
+                <field name="type_id"/>
+                <field name="assigned_to"/>
+                <field name="status"/>
+                <field name="due_date"/>
+                <field name="closed_by"/>
+                <field name="closing_date"/>
+            </tree>
+        </field>
+    </record>
+
     <!-- Action for Task -->
     <record id="action_task" model="ir.actions.act_window">
         <field name="name">Tasks</field>
         <field name="res_model">task.management</field>
         <field name="view_mode">tree,form</field>
+        <field name="domain">[('status', '!=', 'time_exceeded')]</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to create a new task.
+            </p>
+        </field>
+    </record>
+
+    <!-- Action for Time Exceeded Tasks -->
+    <record id="action_task_time_exceeded" model="ir.actions.act_window">
+        <field name="name">Time Exceeded Tasks</field>
+        <field name="res_model">task.management</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('status', '=', 'time_exceeded')]</field>
         <field name="help" type="html">
             <p class="oe_view_nocontent_create">
                 Click to create a new task.
@@ -76,5 +109,7 @@
     </record>
 
     <!-- Menu Item for Task -->
-    <menuitem id="menu_task" name="Tasks" parent="menu_task_management_root" action="action_task" sequence="0"/>
+    <menuitem id="menu_task_root" name="Tasks" parent="menu_task_management_root" sequence="0"/>
+    <menuitem id="menu_task" name="Tasks" parent="menu_task_root" action="action_task" sequence="0"/>
+    <menuitem id="menu_task_time_exceeded" name="Time Exceeded Tasks" parent="menu_task_root" action="action_task_time_exceeded" groups="task_management.group_task_manager" sequence="1"/>
 </odoo>
