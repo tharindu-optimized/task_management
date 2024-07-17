@@ -29,3 +29,17 @@ class TaskManagement(models.Model):
         if vals.get('name', _('New')) == _('New'):
             vals['name'] = self.env['ir.sequence'].next_by_code('task.name') or _('New')
         return super(TaskManagement, self).create(vals)
+        
+    def action_draft(self):
+        self.status = 'draft'
+        
+    def action_approve(self):
+        self.status = 'approved'
+        
+    def action_reject(self):
+        self.status = 'rejected'
+        
+    def action_hold(self):
+        self.status = 'hold'
+        
+    

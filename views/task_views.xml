@@ -6,6 +6,10 @@
         <field name="arch" type="xml">
             <form string="Task">
                 <header>
+                    <button string="Reset to Draft" name="action_draft" type="object" class="oe_highlight" groups="task_management.group_task_manager" attrs="{'invisible': [('status', 'in', ['draft'])]}"/>
+                    <button string="Approve" name="action_approve" type="object" class="oe_highlight" groups="task_management.group_task_manager" attrs="{'invisible': [('status', 'not in', ['draft'])]}"/>
+                    <button string="Hold" name="action_hold" type="object" class="oe_highlight" groups="task_management.group_task_manager" attrs="{'invisible': [('status', 'not in', ['draft'])]}"/>
+                    <button string="Reject" name="action_reject" type="object" class="oe_highlight" groups="task_management.group_task_manager" attrs="{'invisible': [('status', 'not in', ['draft'])]}"/>
                     <field name="status" widget="statusbar"/>
                 </header>
                 <sheet>
@@ -14,29 +18,30 @@
                     </h1>
                     <group>
                         <group>
-                            <field name="date"/>
-                            <field name="type_id"/>
-                            <field name="assigned_to"/>
-                            <field name="branch_id"/>
-                            <field name="in_ward"/>
-                            <field name="outward"/>
-                            <field name="description"/>
+                            <field name="date" attrs="{'readonly': [('status', '!=', 'draft')]}"/>
+                            <field name="type_id" attrs="{'readonly': [('status', '!=', 'draft')]}"/>
+                            <field name="assigned_to" attrs="{'readonly': [('status', '!=', 'draft')]}"/>
+                            <field name="branch_id" attrs="{'readonly': [('status', '!=', 'draft')]}"/>
+                            <field name="in_ward" attrs="{'readonly': [('status', '!=', 'draft')]}"/>
+                            <field name="outward" attrs="{'readonly': [('status', '!=', 'draft')]}"/>
+                            <field name="description" attrs="{'readonly': [('status', '!=', 'draft')]}"/>
                         </group>
                         <group>
-                            <field name="due_date"/>
-                            <field name="closing_date"/>
-                            <field name="closed_by"/>
+                            <field name="due_date" attrs="{'readonly': [('status', '!=', 'draft')]}"/>
+                            <field name="closing_date" attrs="{'readonly': [('status', '!=', 'draft')]}"/>
+                            <field name="closed_by" attrs="{'readonly': [('status', '!=', 'draft')]}"/>
                         </group>
                     </group>
                 </sheet>
                 <!-- <div class="oe_chatter">
-                    <field name="message_follower_ids"/>
-                    <field name="activity_ids"/>
-                    <field name="message_ids"/>
-                </div> -->
+                <field name="message_follower_ids"/>
+                <field name="activity_ids"/>
+                <field name="message_ids"/>
+            </div> -->
             </form>
         </field>
     </record>
+
 
     <!-- Tree View for Task -->
     <record id="view_task_tree" model="ir.ui.view">
